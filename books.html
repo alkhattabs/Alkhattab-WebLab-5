@@ -7,34 +7,38 @@
     <title>Books JSON Example</title>
 </head>
 <body>
+
     <script>
-        const bookData = {
-            "Books": [
-                {
-                    "title": "The Great Gatsby",
-                    "author": "F. Scott Fitzgerald",
-                    "publicationYear": 1925,
-                    "genres": ["Fiction", "Classics"]
-                },
-                {
-                    "title": "To Kill a Mockingbird",
-                    "author": "Harper Lee",
-                    "publicationYear": 1960,
-                    "genres": ["Fiction", "Coming-of-Age"]
-                }
-            ]
-        };
+        // Embedded JSON data
+        const bookData = [
+            {
+                "title": "The Great Gatsby",
+                "author": "F. Scott Fitzgerald",
+                "publicationYear": 1925,
+                "genres": ["Fiction", "Classics"]
+            },
+            {
+                "title": "To Kill a Mockingbird",
+                "author": "Harper Lee",
+                "publicationYear": 1960,
+                "genres": ["Fiction", "Coming-of-Age"]
+            }
+        ];
 
-        // (a) To display the Title of the first book
-        console.log("Title of the first book:", bookData.Books[0].title);
+        // (a) Display title of first book
+        console.log("a) Title of the first book:", bookData[0].title);
 
-        // (b) To display the Author of the second book
-        console.log("Author of the second book:", bookData.Books[1].author);
+        // (b) Display author of second book
+        console.log("b) Author of the second book:", bookData[1].author);
 
-        // (c) To display the Genres of all books
-        bookData.Books.forEach(book => {
-            console.log("Genres:", book.genres);
+        // (c) Display genres of all books
+        console.log("c) Genres of all books:");
+        bookData.forEach((book, index) => {
+            console.log(`Book ${index + 1} (${book.title}):`, book.genres.join(", "));
         });
+
+        // Bonus: Display the complete JSON data
+        console.log("Complete book data:", bookData);
     </script>
 </body>
 </html>
